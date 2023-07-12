@@ -1,0 +1,4 @@
+__pycache__/
+venv/
+vidp.mp4
+yolov8s.pt
