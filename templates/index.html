@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd-inflow-outflow</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div>
+        <h1>CROWD INFLOW OUTFLOW ESTIMATION</h1>
+    </div>
+    <div>
+        <h2>Upload the video</h2>
+    </div>
+    <div class = "container">
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name ="file" class = "upload-box">
+        <input type="submit" value="upload" class = "submit-box">
+        
+    </form>
+    </div>
+    <div class = "container2">
+        <img src="../static/images/flowchart.jpg" alt="flowchart" height="400px">
+    </div>
+    <div class = "con">
+        <div class = "footer">
+            <div class="footer-contents">
+                <div class="logo">
+                    <img src="../static/images/yolov8.jpg" alt="yolov8" height="80px" width="150px">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
 __pycache__/
 venv/
+static/files/
 vidp.mp4
 yolov8s.pt
