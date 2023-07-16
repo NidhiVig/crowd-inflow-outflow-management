@@ -1,23 +1,28 @@
 import cv2
 import pandas as pd
-# import numpy as np
 from ultralytics import YOLO
 from tracker import *
 import cvzone
+# import os
 
-def RGB(event, x, y, flags, param):
-    if event == cv2.EVENT_MOUSEMOVE :  
-        point = [x, y]
-        print(point)
+# def RGB(event, x, y, flags, param):
+#     if event == cv2.EVENT_MOUSEMOVE :  
+#         point = [x, y]
+#         print(point)
     
             
 
 def fun(): 
     model = YOLO("yolov8s.pt")
     #  function to track the mouse coordinates
-    cv2.namedWindow('RGB')
-    cv2.setMouseCallback('RGB', RGB)
+    # cv2.namedWindow('RGB')
+    # cv2.setMouseCallback('RGB', RGB)
     cap=cv2.VideoCapture('static\\files\\vidp.mp4')
+    # video_out_path = 'static\\files\\people_out.mp4'
+    
+    ret, frame = cap.read()
+    # cap_out = cv2.VideoWriter(video_out_path, cv2.VideoWriter_fourcc(*'mp4v'), cap.get(cv2.CAP_PROP_FPS), (frame.shape[1], frame.shape[0]))
+
     my_file = open("coco.txt", "r")
     data = my_file.read()
     class_list = data.split("\n")
@@ -31,7 +36,7 @@ def fun():
     cy2=220
     offset=6
     while True:    
-        ret,frame = cap.read()
+        # ret,frame = cap.read()
         if not ret:
             break
         count += 1
@@ -87,9 +92,14 @@ def fun():
         up = len(counter2)
         cvzone.putTextRect(frame,f'Down{down : }',(10,50),1,2)
         cvzone.putTextRect(frame,f'Up{up : }',(10,100),1,2)
-        cv2.imshow("RGB", frame)
+        # cv2.imshow("RGB", frame)
+        cv2.waitKey(1)
+        cv2.imshow("frame", frame)
+        # cap_out.write(frame)
+        ret,frame = cap.read()
         if cv2.waitKey(1)&0xFF==27:
             break
+        
     cap.release()
     cv2.destroyAllWindows()
 

@@ -20,4 +20,4 @@ def predict():
     # print("upload folder is", filepath)
     f.save(filepath)
     fun()
-    return render_template("predict.html")
+    return render_template("index.html")
